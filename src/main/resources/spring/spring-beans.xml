@@ -6,6 +6,7 @@
 
     <!-- 扫描包 -->
     <context:component-scan base-package="com.lcc.service"/>
+    <context:component-scan base-package="com.lcc.dao"/>
 
     <!-- 引入配置文件 -->
     <mvc:property-placeholder location="classpath:properties/jdbc.properties"/>
@@ -23,7 +24,7 @@
     </bean>
     <!-- mapper代理开发 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <!-- 将会自动扫描 Dao 层包 -->
+        <!-- 将Dao层与mapper关联及使@Mapper注解生效 -->
         <property name="basePackage" value="com.lcc.dao"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
